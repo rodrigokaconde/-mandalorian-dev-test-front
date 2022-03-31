@@ -1,1 +1,19 @@
-<p>add works!</p>
+
+
+<div class="container">
+    <p class="fs-1 mt-5 mb-5 text-center">Adicionar Tarefa</p>
+    <div class="input-group mb-5 mt-5">
+        <span class="input-group-text" id="basic-addon1">Título</span>
+        <input name="title" type="text" class="form-control"
+        aria-describedby="basic-addon1" [(ngModel)]='task.title'>
+      </div>
+    <div class="input-group mb-5">
+        <span class="input-group-text">Descrição</span>
+        <textarea name="description" class="form-control" [(ngModel)]='task.description'></textarea>
+      </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="btn btn-primary" (click)="addTask()">Salvar Tarefa</button>
+        <button type="button" class="btn btn-warning" (click)="clearForm()">Cancelar</button>
+    </div>
+    
+  </div>
