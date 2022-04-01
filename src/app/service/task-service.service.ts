@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Task } from '../model/Task';
 
@@ -9,10 +9,15 @@ export class TaskServiceService {
 
   private urlAddTask:string = "http://localhost:8080/add/task";
 
+  private httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
+
   constructor(private http: HttpClient) { }
 
   addTask(task: Task){
-    console.log(JSON.stringify(task));
-    return this.http.post(this.urlAddTask, JSON.stringify(task));
+    return this.http.post(this.urlAddTask, JSON.stringify(task), this.httpOptions).subscribe(data=>{
+      console.log(JSON.parse(JSON.stringify(data)));
+    })
   }
 }

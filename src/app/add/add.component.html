@@ -12,7 +12,7 @@
         <textarea name="description" class="form-control" [(ngModel)]='task.description'></textarea>
       </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="button" class="btn btn-primary" (click)="addTask()">Salvar Tarefa</button>
+        <button type="button" class="btn btn-primary" (click)="addTask()" ngif>Salvar Tarefa</button>
         <button type="button" class="btn btn-warning" (click)="clearForm()">Cancelar</button>
     </div>
     
