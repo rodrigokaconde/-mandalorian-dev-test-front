@@ -16,8 +16,7 @@ export class TaskServiceService {
   constructor(private http: HttpClient) { }
 
   addTask(task: Task){
-    return this.http.post(this.urlAddTask, JSON.stringify(task), this.httpOptions).subscribe(data=>{
-      console.log(JSON.parse(JSON.stringify(data)));
-    })
+    return this.http.post(this.urlAddTask, JSON.stringify(task), this.httpOptions);
   }
+
 }

@@ -9,6 +9,8 @@ import { TaskServiceService } from '../service/task-service.service';
 })
 export class AddComponent implements OnInit {
 
+  alertSucess: boolean = false;
+  alertError: boolean = false;
   task: Task = new Task;
 
   constructor(private taskService: TaskServiceService) { }
@@ -18,11 +20,24 @@ export class AddComponent implements OnInit {
 
 
   addTask(){
-    this.taskService.addTask(this.task);
+    this.taskService.addTask(this.task).subscribe(data =>{
+      this.alertSucess=true;
+    }, erro =>{
+      this.alertError=true;
+    });
   }
 
   clearForm(){
     this.task.title='';
     this.task.description='';
+  }
+
+  closeSucessAlert(){
+    this.alertSucess=false;
+    this.clearForm();
+  }
+
+  closeErrorAlert(){
+    this.alertError=false;
   }
 }

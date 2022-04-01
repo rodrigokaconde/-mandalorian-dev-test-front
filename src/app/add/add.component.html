@@ -2,6 +2,14 @@
 
 <div class="container">
     <p class="fs-1 mt-5 mb-5 text-center">Adicionar Tarefa</p>
+    <div *ngIf = "alertSucess" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Sucesso</strong> ao salvar tarefa.
+      <button (click)="closeSucessAlert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div *ngIf = "alertError" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Erro</strong> ao salvar tarefa.
+      <button (click)="closeErrorAlert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <div class="input-group mb-5 mt-5">
         <span class="input-group-text" id="basic-addon1">Título</span>
         <input name="title" type="text" class="form-control"
@@ -15,5 +23,4 @@
         <button type="button" class="btn btn-primary" (click)="addTask()" ngif>Salvar Tarefa</button>
         <button type="button" class="btn btn-warning" (click)="clearForm()">Cancelar</button>
     </div>
-    
   </div>
